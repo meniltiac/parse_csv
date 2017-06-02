@@ -48,11 +48,15 @@ if __name__ == "__main__":
 
     with open(input_filename, 'rb') as csvfile:
         reader = csv.DictReader(csvfile)
-        trashed_domains = ['https://www-alpha.parsely.com/', 'http://www-alpha.parsely.com/', 'http://localhost', 'https://beta.parse.ly/', 'https://alpha.parse.ly', 'https://2014.parse.ly/']
+        trashed_domains = ['https://www-alpha.parsely.com/', 'http://2015.parse.ly', 'https://www-beta.parsely.com', 'http://www-alpha.parsely.com/', 'http://localhost', 'https://beta.parse.ly/', 'https://alpha.parse.ly', 'https://2014.parse.ly/']
         for row in reader:
             if add_to_output(export_output, row, 'https://www.parsely.com'):
                 pass
             elif add_to_output(export_output, row, 'https://www.parse.ly'):
+                pass
+            elif add_to_output(export_output, row, 'http://www.parsely.com'):
+                pass
+            elif add_to_output(export_output, row, 'https://parse.ly'):
                 pass
             else:
                 trash = False
